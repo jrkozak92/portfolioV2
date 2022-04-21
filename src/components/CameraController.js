@@ -6,6 +6,7 @@ import * as THREE from 'three'
 const CameraController = () => {
     const { camera, gl } = useThree();
     camera.position.setZ(140)
+    camera.fov = 45
     useEffect(() => {
       const controls = new OrbitControls(camera, gl.domElement);
 
