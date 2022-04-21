@@ -12,13 +12,20 @@ import FrontPlane from './components/FrontPlane'
 import BackPlane from './components/BackPlane'
 
 const App = () => {
+  const [visToggle, setVisToggle] = useState(true)
+
+  const toggleBox = (event) => {
+    event.stopPropagation()
+    setVisToggle(!visToggle)
+  }
+  
   return (
     <div id="container">
       <Canvas>
         <CameraController />
         <pointLight position={[-5,5,0]}/>
         <ambientLight intensity={.2}/>
-        <SpinBox />
+        <SpinBox setVisToggle={setVisToggle} visToggle={visToggle}/>
         <UpPlane />
         <DownPlane />
         <LeftPlane />
@@ -26,6 +33,14 @@ const App = () => {
         <FrontPlane />
         <BackPlane />
       </Canvas>
+      { visToggle ?
+          null
+            :
+          <div id="box-icon-box">
+            <div id="box-icon" onClick={(event)=>{toggleBox(event)}}></div>
+          </div>
+      }
+      
     </div>
   );
 }
