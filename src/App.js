@@ -11,6 +11,7 @@ import RightPlane from './components/RightPlane'
 import FrontPlane from './components/FrontPlane'
 import BackPlane from './components/BackPlane'
 
+
 const App = () => {
   const [visToggle, setVisToggle] = useState(true)
   
@@ -43,7 +44,6 @@ const App = () => {
             <div id="box-icon" onClick={(event)=>{toggleBox(event)}}></div>
           </div>
       }
-      
     </div>
   );
 }
