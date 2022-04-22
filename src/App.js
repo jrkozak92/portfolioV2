@@ -13,15 +13,18 @@ import BackPlane from './components/BackPlane'
 
 const App = () => {
   const [visToggle, setVisToggle] = useState(true)
-
+  
   const toggleBox = (event) => {
     event.stopPropagation()
     setVisToggle(!visToggle)
   }
+
+
   
   return (
     <div id="container">
-      <Canvas>
+      <Canvas
+        camera={{fov: 70}} >
         <CameraController />
         <pointLight position={[-5,5,0]}/>
         <ambientLight intensity={.2}/>
