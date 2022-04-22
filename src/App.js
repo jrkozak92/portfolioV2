@@ -13,11 +13,11 @@ import BackPlane from './components/BackPlane'
 
 
 const App = () => {
-  const [visToggle, setVisToggle] = useState(true)
+  const [visToggle, setVisToggle] = useState(1)
   
   const toggleBox = (event) => {
     event.stopPropagation()
-    setVisToggle(!visToggle)
+    visToggle === 0 ? setVisToggle(1) : setVisToggle(0)
   }
 
 
@@ -37,7 +37,7 @@ const App = () => {
         <FrontPlane />
         <BackPlane />
       </Canvas>
-      { visToggle ?
+      { visToggle === 1 ?
           null
             :
           <div id="box-icon-box">
