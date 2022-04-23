@@ -6,6 +6,12 @@ import { Object3D } from 'three'
 extend({ Object3D, OrbitControls })
 // extend TransformControls if you want to use them
 
+//===========================================================================
+// THIS COMPONENT HAS BEEN MADE IRRELEVANT BY DREI
+// DREI'S IMPLEMENTATION WORKS BETTER ANYWAY
+//===========================================================================
+
+
 const CameraController = () => {
   const camTarget = useRef()
   const { camera, gl } = useThree();
