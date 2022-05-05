@@ -1,10 +1,9 @@
 import './App.css';
-import React, { useState, useEffect, useRef } from 'react'
+import React, { Suspense, useState, useEffect, useRef } from 'react'
 import useStore from './components/Store'
 import { OrbitControls } from '@react-three/drei'
 import { Canvas, extend, useThree, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
-import CameraController from './components/CameraController'
 import SpinBox from './components/SpinBox'
 import UpPlane from './components/UpPlane'
 import DownPlane from './components/DownPlane'
@@ -38,7 +37,7 @@ const App = () => {
   return (
     <div id="container">
       <Canvas
-        camera={{fov: 70, position: [0,0,-140]}} >
+        camera={{fov: 70, position: [0,0,-160]}} >
         <OrbitControls/>
         <pointLight position={[-5,5,0]}/>
         <ambientLight intensity={.2}/>
@@ -48,7 +47,7 @@ const App = () => {
         <LeftPlane />
         <RightPlane />
         <FrontPlane />
-        <BackPlane />
+        <BackPlane/>
       </Canvas>
       { visToggle ?
           null
