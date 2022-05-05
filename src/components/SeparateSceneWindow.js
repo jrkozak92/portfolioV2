@@ -16,8 +16,8 @@ const SeparateSceneWindow = ({ children, ...props }) => {
     })
     return (
         <>
-            <mesh  {...props}>
-                <planeGeometry args={[100, 100]} />
+            <mesh {...props}>
+                <planeGeometry  args={[100, 100]} />
                 <meshBasicMaterial map={fbo.texture} />
             </mesh>
             <PerspectiveCamera manual ref={cam} fov={70} aspect={1} onUpdate={(c) => (c.updateProjectionMatrix())} />

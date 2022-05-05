@@ -20,6 +20,15 @@ const App = () => {
 
   console.log('visToggle: ', visToggle)
 
+  const cameraStations = {
+    front: [0,0,-160],
+    back: [0,0,160],
+    right: [160,0,0],
+    left: [-160,0,0],
+    top: [0,-160,0],
+    bottom: [0,160,0]
+  }
+
   const toggleBox = (event) => {
     event.stopPropagation()
     if (visToggle !== true){
@@ -37,7 +46,7 @@ const App = () => {
   return (
     <div id="container">
       <Canvas
-        camera={{fov: 70, position: [0,0,-160]}} >
+        camera={{fov: 70, position: cameraStations.front}} >
         <OrbitControls/>
         <pointLight position={[-5,5,0]}/>
         <ambientLight intensity={.2}/>

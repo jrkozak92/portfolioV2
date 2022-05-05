@@ -1,4 +1,4 @@
-import { Suspense } from "react"
+import { Suspense, useRef } from "react"
 import { TextureLoader } from "three"
 import { useLoader } from "@react-three/fiber"
 import SeparateSceneWindow from "./SeparateSceneWindow"
