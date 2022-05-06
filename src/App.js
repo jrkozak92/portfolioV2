@@ -18,16 +18,7 @@ const App = () => {
   // const visToggle = useRef(useStore.getState().visToggle)
   const toggleVis = useStore(state => state.toggleVis)
 
-  console.log('visToggle: ', visToggle)
-
-  const cameraStations = {
-    front: [0,0,-160],
-    back: [0,0,160],
-    right: [160,0,0],
-    left: [-160,0,0],
-    top: [0,-160,0],
-    bottom: [0,160,0]
-  }
+  let currentCameraStation = useStore(state => state.currentCameraStation)
 
   const toggleBox = (event) => {
     event.stopPropagation()
@@ -41,12 +32,19 @@ const App = () => {
     useStore.subscribe(
       state => (visToggle = state.visToggle)
     )
+    useStore.subscribe(
+      state => (currentCameraStation = state.currentCameraStation)
+    )
   }, [])
+
+  useEffect(()=>{
+   
+  },[currentCameraStation])
   
   return (
     <div id="container">
       <Canvas
-        camera={{fov: 70, position: cameraStations.front}} >
+        camera={{fov: 70, position: currentCameraStation}} >
         <OrbitControls/>
         <pointLight position={[-5,5,0]}/>
         <ambientLight intensity={.2}/>
@@ -56,7 +54,7 @@ const App = () => {
         <LeftPlane />
         <RightPlane />
         <FrontPlane />
-        <BackPlane/>
+        <BackPlane />
       </Canvas>
       { visToggle ?
           null

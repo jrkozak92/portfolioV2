@@ -14,8 +14,11 @@ const BackPlane = () => {
           <meshBasicMaterial color="blue" alphaMap={alphaMap} transparent />
       </mesh>
       <Suspense fallback={null}>
-        <SeparateSceneWindow scale={.9} position={[0, 0, 50.01]} rotation-x={0} rotation-y={0}>
-          
+        <SeparateSceneWindow scale={.9} position={[0, 0, 50.01]} rotation-x={0} rotation-y={0} cameraPosition={[0,0,100]}>
+          <mesh position={[0,-50,0]} rotation-x={-Math.PI/2}>
+            <planeGeometry args={[200,200]}/>
+            <meshBasicMaterial color="green"/>
+          </mesh>
         </SeparateSceneWindow>
       </Suspense>
     </>
