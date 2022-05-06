@@ -12,12 +12,17 @@ import RightPlane from './components/RightPlane'
 import FrontPlane from './components/FrontPlane'
 import BackPlane from './components/BackPlane'
 
+
+
 const App = () => {
   //Store Definition
   let visToggle = useStore((state)=> state.visToggle)
   // const visToggle = useRef(useStore.getState().visToggle)
   const toggleVis = useStore(state => state.toggleVis)
 
+  // const { camera } = useThree()
+  //You'll have to make a camera component and modify it instead, since you can't access useThree outside of canvas
+  
   let currentCameraStation = useStore(state => state.currentCameraStation)
 
   const toggleBox = (event) => {
